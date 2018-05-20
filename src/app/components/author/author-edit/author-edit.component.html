@@ -1,1 +1,80 @@
-Author edit component
+<div class="container">
+
+	<div class="row">
+		<h2 class="text-center">Редактирование автора</h2>
+	</div>
+	
+	<div class="row">
+
+		<div class="col-xs-12 col-md-6 col-md-offset-3">
+			<div class="well form-wrapper">
+				
+				<form [formGroup]="form" (ngSubmit)="submitForm( form.value )">
+
+				  <div class="form-group" 
+				  [class.has-success]="form.controls['surname'].touched && form.controls['surname'].valid" 
+				  [class.has-error]="form.controls['surname'].touched && !form.controls['surname'].valid">
+				    <label for="author-surname">Фамилия</label>&nbsp;<span class="required-star">*</span>
+				    <input type="text" class="form-control" id="author-surname" formControlName="surname">
+				    <span class="help-block">
+					    <ng-container *ngIf="form.controls['surname'].touched && !form.controls['surname'].valid">Это поле обязательно для заполнения и не должно содержить лишних символов</ng-container>
+					    <ng-container>&nbsp;</ng-container>
+				    </span>
+				  </div>
+
+				  <div class="form-group" 
+				  [class.has-success]="form.controls['name'].touched && form.controls['name'].valid" 
+				  [class.has-error]="form.controls['name'].touched && !form.controls['name'].valid">
+				    <label for="author-name">Имя</label>&nbsp;<span class="required-star">*</span>
+				    <input type="text" class="form-control" id="author-name" formControlName="name">
+				    <span class="help-block">
+					    <ng-container *ngIf="form.controls['name'].touched && !form.controls['name'].valid">Это поле обязательно для заполнения и не должно содержить лишних символов</ng-container>
+					    <ng-container>&nbsp;</ng-container>
+				    </span>
+				  </div>
+					
+				  <div class="form-group" 
+				  [class.has-success]="form.controls['patronymic'].touched && form.controls['patronymic'].valid" 
+				  [class.has-error]="form.controls['patronymic'].touched && !form.controls['patronymic'].valid">
+				    <label for="author-patronymic">Отчество</label>
+				    <input type="text" class="form-control" id="author-patronymic" formControlName="patronymic">
+				    <span class="help-block">
+					    <ng-container *ngIf="form.controls['patronymic'].touched && !form.controls['patronymic'].valid">Это поле не должно содержить лишних символов</ng-container>
+					    <ng-container>&nbsp;</ng-container>
+				    </span>
+				  </div>
+
+				  <div class="form-group" 
+				  [class.has-success]="form.controls['birthdate'].touched && form.controls['birthdate'].valid" 
+				  [class.has-error]="form.controls['birthdate'].touched && !form.controls['birthdate'].valid">
+				    <label for="author-birthdate">Дата Рождения</label>&nbsp;<span class="required-star">*</span>
+						<my-date-picker name="birthdate" [options]="customDatepickerOptions" formControlName="birthdate"></my-date-picker>
+				    <span class="help-block">
+					    <ng-container *ngIf="form.controls['birthdate'].touched && !form.controls['birthdate'].valid">Это поле обязательно для заполнения</ng-container>
+					    <ng-container>&nbsp;</ng-container>
+				    </span>
+				  </div>
+
+
+				  <div class="form-group" 
+				  [class.has-success]="form.controls['bookIds'].touched && form.controls['bookIds'].valid" 
+				  [class.has-error]="form.controls['bookIds'].touched && !form.controls['bookIds'].valid">
+				    <label for="author-books">Книги</label>
+				    <select multiple="true" class="form-control" id="author-books" formControlName="bookIds">
+				    	<option *ngFor="let _book of booksList" [value]="_book.id">{{ _book.name }}</option>
+				    </select>
+				    <span class="help-block">
+					    <ng-container>&nbsp;</ng-container>
+				    </span>
+				  </div>
+
+				  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Сохранить</button>
+
+				</form>
+
+			</div>
+		</div>
+
+		
+	</div>
+</div>

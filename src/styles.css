@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+html {font-size: 14px;}
 body { 
   background-color: #f5f2f2;
   padding-top: 70px;
@@ -23,7 +24,7 @@ a:not(.clear-link)::before {
   -o-transition: all, .2s;
   transition: all, .2s;
   width: 100%;
-  height: 2px;
+  height: 1px;
   left: 0;
   right: 0;
   margin: auto;
@@ -37,4 +38,16 @@ a:not(.clear-link):hover::before {
   bottom: 0;
   opacity: 1;
   background: #8ac440;
+}
+
+.well.form-wrapper {
+  background: #fff;
+}
+
+.required-star {
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: .5em;
+  color: #d11;
+  vertical-align: middle;
 }

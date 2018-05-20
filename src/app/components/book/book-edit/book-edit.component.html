@@ -1,1 +1,59 @@
-Book edit component
+<div class="container">
+
+	<div class="row">
+		<h2 class="text-center">Редактирование книги</h2>
+	</div>
+	
+	<div class="row">
+
+		<div class="col-xs-12 col-md-6 col-md-offset-3">
+			<div class="well form-wrapper">
+				
+				<form [formGroup]="form" (ngSubmit)="submitForm( form.value )">
+					
+				  <div class="form-group" 
+				  [class.has-success]="form.controls['name'].touched && form.controls['name'].valid" 
+				  [class.has-error]="form.controls['name'].touched && !form.controls['name'].valid">
+				    <label for="book-name">Название</label>&nbsp;<span class="required-star">*</span>
+				    <input type="text" class="form-control" id="book-name" formControlName="name">
+				    <span class="help-block">
+					    <ng-container *ngIf="form.controls['name'].touched && !form.controls['name'].valid">Это поле обязательно для заполнения</ng-container>
+					    <ng-container>&nbsp;</ng-container>
+				    </span>
+				  </div>
+
+				  <div class="form-group" 
+				  [class.has-success]="form.controls['amountOfPages'].touched && form.controls['amountOfPages'].valid" 
+				  [class.has-error]="form.controls['amountOfPages'].touched && !form.controls['amountOfPages'].valid">
+				    <label for="book-amount-of-pages">Количество страниц</label>&nbsp;<span class="required-star">*</span>
+				    <input type="number" step="1" class="form-control" id="book-amount-of-pages" formControlName="amountOfPages">
+				    <span class="help-block">
+					    <ng-container *ngIf="form.controls['amountOfPages'].touched && !form.controls['amountOfPages'].valid">Это поле обязательно для заполнения</ng-container>
+					    <ng-container>&nbsp;</ng-container>
+				    </span>
+				  </div>
+
+				  <div class="form-group" 
+				  [class.has-success]="form.controls['genre'].touched && form.controls['genre'].valid" 
+				  [class.has-error]="form.controls['genre'].touched && !form.controls['genre'].valid">
+				    <label for="book-genre">Жанр</label>&nbsp;<span class="required-star">*</span>
+				    <select class="form-control" id="book-genre" formControlName="genre">
+				    	<option value=""></option>
+				    	<option *ngFor="let _genre of genresList" [value]="_genre.id">{{ _genre.name }}</option>
+				    </select>
+				    <span class="help-block">
+					    <ng-container *ngIf="form.controls['genre'].touched && !form.controls['genre'].valid">Это поле обязательно для заполнения</ng-container>
+					    <ng-container>&nbsp;</ng-container>
+				    </span>
+				  </div>
+
+				  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Сохранить</button>
+
+				</form>
+
+			</div>
+		</div>
+
+		
+	</div>
+</div>

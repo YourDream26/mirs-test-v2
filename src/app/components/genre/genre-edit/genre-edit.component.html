@@ -1,1 +1,34 @@
-Genre edit component
+<div class="container">
+
+	<div class="row">
+		<h2 class="text-center">Редактирование жанра</h2>
+	</div>
+	
+	<div class="row">
+
+		<div class="col-xs-12 col-md-6 col-md-offset-3">
+			<div class="well form-wrapper">
+				
+				<form [formGroup]="form" (ngSubmit)="submitForm( form.value )">
+					
+				  <div class="form-group" 
+				  [class.has-success]="form.controls['name'].touched && form.controls['name'].valid" 
+				  [class.has-error]="form.controls['name'].touched && !form.controls['name'].valid">
+				    <label for="genre-name">Название</label>&nbsp;<span class="required-star">*</span>
+				    <input type="text" class="form-control" id="genre-name" formControlName="name">
+				    <span class="help-block">
+					    <ng-container *ngIf="form.controls['name'].touched && !form.controls['name'].valid">Это поле обязательно для заполнения</ng-container>
+					    <ng-container>&nbsp;</ng-container>
+				    </span>
+				  </div>
+
+				  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Сохранить</button>
+
+				</form>
+
+			</div>
+		</div>
+
+		
+	</div>
+</div>

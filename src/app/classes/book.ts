@@ -3,6 +3,8 @@ import { Genre } from './genre';
 
 export class Book {
 	amountOfPages: 	number;
-	genre: 					Genre;
+	id?:						number;
+	genre?:					Genre;
+	genreId:				number;
 	name: 					string;
 }

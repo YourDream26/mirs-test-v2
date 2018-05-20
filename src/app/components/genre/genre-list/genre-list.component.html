@@ -1,1 +1,24 @@
-Genre list component
+<div class="container">
+	<div class="row">
+
+		<ng-container *ngIf="!genresList.length">
+			<h2 class="text-center">По данному запросу ничего не найдено.<br /><small>Хотите <a routerLink="/genre-add">добавить новый</a>&nbsp;?</small></h2>
+		</ng-container>
+
+		<ng-container *ngIf="genresList.length">
+			<h2 class="text-center">Список доступных жанров:</h2>
+
+
+			<div class="col-xs-12 col-md-8 col-md-offset-2">
+				<div class="well form-wrapper">
+					<a class="clear-link btn btn-primary" routerLink="/genre-add">Добавить новый</a>
+					<hr />
+					<h5 class="genre-name" *ngFor="let _genre of genresList">
+						<span class="glyphicon glyphicon-trash" (click)="deleteGenre( _genre.id )"></span>&nbsp;
+						<a routerLink="/genre-edit/{{ _genre.id }}">{{ _genre.name }}</a></h5>
+				</div>
+			</div>
+		</ng-container>
+	
+	</div>
+</div>

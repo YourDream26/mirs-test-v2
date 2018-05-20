@@ -1,0 +1,59 @@
+{
+  "authors": [
+    {
+      "bookIds": [
+        5,
+        3
+      ],
+      "books": [],
+      "patronymic": "Иванович",
+      "name": "Иван",
+      "surname": "Иванов",
+      "birthdate": {
+        "date": {
+          "year": 2018,
+          "month": 5,
+          "day": 11
+        },
+        "jsdate": "2018-05-10T21:00:00.000Z",
+        "formatted": "11.05.2018",
+        "epoc": 1525986000
+      },
+      "id": 1
+    }
+  ],
+  "genres": [
+    {
+      "name": "А_Жанр",
+      "id": 2
+    },
+    {
+      "name": "Я_Жанр",
+      "id": 3
+    },
+    {
+      "name": "Фэнтези",
+      "id": 4
+    }
+  ],
+  "books": [
+    {
+      "name": "Я_Книга",
+      "amountOfPages": 305,
+      "genreId": 3,
+      "id": 3
+    },
+    {
+      "name": "Приключения Питера Пэна",
+      "amountOfPages": 512,
+      "genreId": 4,
+      "id": 4
+    },
+    {
+      "name": "А_Книга",
+      "amountOfPages": 213,
+      "genreId": 2,
+      "id": 5
+    }
+  ]
+}

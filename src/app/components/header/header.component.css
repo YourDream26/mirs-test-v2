@@ -63,6 +63,7 @@ nav .container-fluid .navbar-brand > img {
 @media screen and (max-width: 767px) {
     nav .container-fluid .navbar-brand {
         height: 50px;
+        line-height: 1em;
     }
     ul.navbar-nav>li>a {
         margin: 0;

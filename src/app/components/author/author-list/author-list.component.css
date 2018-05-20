@@ -1,0 +1,13 @@
+.glyphicon-trash {
+	font-size: 1em;
+	color: #d11;
+	cursor: pointer;
+}
+
+td, th {
+	text-align: center;
+}
+
+th {
+	cursor: pointer;
+}

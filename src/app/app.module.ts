@@ -5,15 +5,16 @@
 */
 import { BrowserModule }        from '@angular/platform-browser';
 import { NgModule }             from '@angular/core';
-import { FormsModule }          from '@angular/forms';
 import { HttpModule }           from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule }          from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
 
 import { GlobalService } from './services/global';
 
+import { MyDatePickerModule } from './modules/my-date-picker/my-date-picker.module';
 
 
 
@@ -35,7 +36,8 @@ import { GenreListComponent } 	 		from './components/genre/genre-list/genre-list
 
 import { AuthorAddComponent } 	 		from './components/author/author-add/author-add.component';
 import { AuthorEditComponent } 	 		from './components/author/author-edit/author-edit.component';
-import { AuthorListComponent } 	 		from './components/author/author-list/author-list.component';
+import { AuthorListComponent }        from './components/author/author-list/author-list.component';
+import { AuthorBooksComponent } 	 		from './components/author/author-books/author-books.component';
 
 import { BookAddComponent } 	 		from './components/book/book-add/book-add.component';
 import { BookEditComponent } 	 		from './components/book/book-edit/book-edit.component';
@@ -50,18 +52,20 @@ import { BookListComponent } 	 		from './components/book/book-list/book-list.com
 */
 const appRoutes: Routes = [
 
-  { path: '', component: HomeComponent },
+  // { path: '', component: HomeComponent },
+  { path: '', component: BookListComponent },
 
-  { path: 'genre-add', component: GenreEditComponent },
-  { path: 'genre-edit', component: GenreEditComponent },
+  { path: 'genre-add', component: GenreAddComponent },
+  { path: 'genre-edit/:id', component: GenreEditComponent },
   { path: 'genres-list', component: GenreListComponent },
 
   { path: 'author-add', component: AuthorAddComponent },
-  { path: 'author-edit', component: AuthorEditComponent },
+  { path: 'author-edit/:id', component: AuthorEditComponent },
+  { path: 'author-books/:id', component: AuthorBooksComponent },
   { path: 'authors-list', component: AuthorListComponent },
 
   { path: 'book-add', component: BookAddComponent },
-  { path: 'book-edit', component: BookEditComponent },
+  { path: 'book-edit/:id', component: BookEditComponent },
   { path: 'books-list', component: BookListComponent },
   
   { path: '**', component: NotFoundComponent }
@@ -81,7 +85,8 @@ const appRoutes: Routes = [
 		GenreListComponent,
 		AuthorAddComponent,
 		AuthorEditComponent,
-		AuthorListComponent,
+    AuthorListComponent,
+		AuthorBooksComponent,
 		BookAddComponent,
 		BookEditComponent,
 		BookListComponent
@@ -90,6 +95,9 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule,
     RouterModule.forRoot( appRoutes ),
+    HttpModule,
+    ReactiveFormsModule,
+    MyDatePickerModule
   ],
   providers: [
   	GlobalService
